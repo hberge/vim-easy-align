@@ -287,7 +287,9 @@ function! s:split_line(line, nth, modes, cycle, fc, lc, pattern, stick_to_left, 
     \ strpart(getline(a:line), a:fc - 1)
   let idx     = 0
   let nomagic = match(a:pattern, '\\v') > match(a:pattern, '\C\\[mMV]')
-  let pattern = '^.\{-}\s*\zs\('.a:pattern.(nomagic ? ')' : '\)')
+  let zs      = match(a:pattern, '^^') == 0 ? '' : '^.\{-}\s*\zs\('
+  let ze      = match(a:pattern, '^^') == 0 ? '' : (nomagic ? ')' : '\)')
+  let pattern = zs.a:pattern.ze
   let tokens  = []
   let delims  = []
 
