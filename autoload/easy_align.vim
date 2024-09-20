@@ -36,6 +36,10 @@ let s:easy_align_delimiters_default = {
 \  ':': { 'pattern': ':',  'left_margin': 0, 'right_margin': 1, 'stick_to_left': 1 },
 \  ',': { 'pattern': ',',  'left_margin': 0, 'right_margin': 1, 'stick_to_left': 1 },
 \  '|': { 'pattern': '|',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
+\  'c': { 'pattern': '//[ !]\?\|--[ !]\?',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0, 'ignore_groups':['!Comment']},
+\  'm': { 'pattern': '^.\{-}\s*\zs\(\<\)\ze\w\+[ ,;]*\(\/\/.*\)\?$', 'left_margin': 1, 'right_margin': 0, 'stick_to_left': 0 },
+\  'v': { 'pattern': '\[[0-9\: ]\+\]',  'delimiter_align':'l', 'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0},
+\  'p': { 'pattern': '(\|)[,]\?',       'delimiter_align':'l', 'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0},
 \  '.': { 'pattern': '\.', 'left_margin': 0, 'right_margin': 0, 'stick_to_left': 0 },
 \  '#': { 'pattern': '#\+', 'delimiter_align': 'l', 'ignore_groups': ['!Comment']  },
 \  '"': { 'pattern': '"\+', 'delimiter_align': 'l', 'ignore_groups': ['!Comment']  },
@@ -45,6 +49,11 @@ let s:easy_align_delimiters_default = {
 \                          'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
 \  '}': { 'pattern': '}',  'left_margin': 1, 'right_margin': 0, 'stick_to_left': 0 }
 \ }
+
+" c: match // or -- comment, optionally followed by ! flag
+" m: match boundary before last word on line, excluding comments
+" p: match either ( or ) optionally followed by ,
+" v: match vector e.g. [7:0]
 
 let s:mode_labels = { 'l': '', 'r': '[R]', 'c': '[C]' }
 
