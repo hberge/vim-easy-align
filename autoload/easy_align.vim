@@ -37,7 +37,7 @@ let s:easy_align_delimiters_default = {
 \  ',': { 'pattern': ',',  'left_margin': 0, 'right_margin': 1, 'stick_to_left': 1 },
 \  '|': { 'pattern': '|',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
 \  'c': { 'pattern': '//[ !]\?\|--[ !]\?',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0, 'ignore_groups':['!Comment']},
-\  'm': { 'pattern': '^.\{-}\s*\zs\(\<\)\ze\w\+[ ,;]*\(\/\/.*\)\?$', 'left_margin': 1, 'right_margin': 0, 'stick_to_left': 0 },
+\  'm': { 'pattern': '^\%( *\/\)\@!.\{-}\s*\zs\(\<\)\ze\w\+[ ,;]*\(\/\/.*\)\?$', 'left_margin': 1, 'right_margin': 0, 'stick_to_left': 0 },
 \  'v': { 'pattern': '\[[0-9\: ]\+\]',  'delimiter_align':'l', 'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0},
 \  'p': { 'pattern': '(\|)[,]\?',       'delimiter_align':'l', 'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0},
 \  '.': { 'pattern': '\.', 'left_margin': 0, 'right_margin': 0, 'stick_to_left': 0 },
